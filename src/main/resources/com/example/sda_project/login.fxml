@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sda_project.LoginController">
+    <left>
+        <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #ff6347;" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" ellipsisString="" layoutX="5.0" layoutY="341.0" prefHeight="25.0" prefWidth="230.0" text="Nex Commerce" textFill="#a41717" textOverrun="WORD_ELLIPSIS">
+                    <font>
+                        <Font name="Candara" size="24.0" />
+                    </font>
+                    <effect>
+                        <InnerShadow>
+                            <color>
+                                <Color red="0.6973684430122375" green="0.04842836409807205" blue="0.04842836409807205" />
+                            </color>
+                            <input>
+                                <ColorAdjust />
+                            </input>
+                        </InnerShadow>
+                    </effect>
+                </Label>
+                <Label alignment="CENTER" ellipsisString="" layoutX="5.0" layoutY="434.0" prefHeight="25.0" prefWidth="230.0" text="Copyright(c). All rights reserverd" textFill="#a41717" textOverrun="WORD_ELLIPSIS">
+                    <font>
+                        <Font name="Arial" size="12.0" />
+                    </font>
+                </Label>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="121.0" layoutX="23.0" layoutY="174.0" stroke="#eb4747" strokeType="INSIDE" width="125.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="121.0" layoutX="71.0" layoutY="212.0" stroke="#eb4747" strokeType="INSIDE" width="125.0" />
+                <Line endX="81.0" layoutX="115.0" layoutY="212.0" startX="33.0" startY="-38.0" stroke="#e41a1a" />
+                <Line endX="81.0" layoutX="-9.0" layoutY="212.0" startX="33.0" startY="-38.0" stroke="#e41a1a" />
+                <Line endX="81.0" layoutX="-9.0" layoutY="334.0" startX="33.0" startY="-38.0" stroke="#e41a1a" />
+            </children>
+            <effect>
+                <DropShadow height="0.0" radius="33.295" width="135.18">
+                    <color>
+                        <Color red="1.0" green="0.013888888992369175" blue="0.013888888992369175" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </AnchorPane>
+    </left>
+    <right>
+        <AnchorPane prefHeight="400.0" prefWidth="332.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" ellipsisString="" layoutX="35.0" layoutY="55.0" prefHeight="25.0" prefWidth="230.0" text="Secure login" textFill="#a41717" textOverrun="WORD_ELLIPSIS">
+                    <font>
+                        <Font name="Candara" size="24.0" />
+                    </font>
+                    <effect>
+                        <InnerShadow>
+                            <color>
+                                <Color red="0.6973684430122375" green="0.04842836409807205" blue="0.04842836409807205" />
+                            </color>
+                            <input>
+                                <ColorAdjust />
+                            </input>
+                        </InnerShadow>
+                    </effect>
+                </Label>
+                <Label alignment="CENTER" ellipsisString="" layoutX="-27.0" layoutY="148.0" prefHeight="30.0" prefWidth="146.0" text="User Name" textFill="#a41717" textOverrun="WORD_ELLIPSIS">
+                    <font>
+                        <Font name="Candara" size="18.0" />
+                    </font>
+                    <effect>
+                        <InnerShadow>
+                            <color>
+                                <Color red="0.6973684430122375" green="0.04842836409807205" blue="0.04842836409807205" />
+                            </color>
+                            <input>
+                                <ColorAdjust />
+                            </input>
+                        </InnerShadow>
+                    </effect>
+                </Label>
+                <Label alignment="CENTER" ellipsisString="" layoutX="-27.0" layoutY="196.0" prefHeight="30.0" prefWidth="146.0" text="Password" textFill="#a41717" textOverrun="WORD_ELLIPSIS">
+                    <font>
+                        <Font name="Candara" size="18.0" />
+                    </font>
+                    <effect>
+                        <InnerShadow>
+                            <color>
+                                <Color red="0.6973684430122375" green="0.04842836409807205" blue="0.04842836409807205" />
+                            </color>
+                            <input>
+                                <ColorAdjust />
+                            </input>
+                        </InnerShadow>
+                    </effect>
+                </Label>
+                <TextField fx:id="usernameTextField" layoutX="95.0" layoutY="146.0" promptText="iXX-XXXX" />
+                <PasswordField fx:id="passwordPasswordField" layoutX="95.0" layoutY="198.0" promptText="Password" />
+                <Button fx:id="loginbutton" layoutY="284.0" mnemonicParsing="false" onAction="#LoginbuttonOnAction" prefHeight="30.0" prefWidth="273.0" style="-fx-background-color: #ee9683;" text="LOGIN" textFill="#d0361b" />
+                <Button fx:id="cancelbutton" layoutY="353.0" mnemonicParsing="false" onAction="#cancelbuttonOnAction" prefHeight="30.0" prefWidth="273.0" style="-fx-background-color: #ee9683;" text="CANCEL" textFill="#e43415" />
+                <VBox />
+
+                <Label fx:id="loginmessageLabel" alignment="CENTER" layoutX="-20.0" layoutY="102.0" prefHeight="18.0" prefWidth="345.0" textFill="#dd1010" />
+                <Button fx:id="createnewaccountbutton" layoutY="408.0" mnemonicParsing="false" onAction="#createnewaccountbuttonOnAction" prefHeight="30.0" prefWidth="273.0" style="-fx-background-color: #ee9683;" text="CREATE NEW ACCOUNT" textFill="#e43415" />
+                 <RadioButton fx:id="AdminRadioButton" layoutX="29.0" layoutY="248.0" mnemonicParsing="false" text="Admin" textFill="#e81d0b">
+               <toggleGroup>
+                         <ToggleGroup fx:id="register" />
+               </toggleGroup>
+                 </RadioButton>
+                 <RadioButton fx:id="CustomerRadioButton" layoutX="117.0" layoutY="247.0" mnemonicParsing="false" text="Customer" textFill="#e81d0b" toggleGroup="$register" />
+                 <RadioButton fx:id="StaffRadioButton" layoutX="222.0" layoutY="248.0" mnemonicParsing="false" text="Staff" textFill="#e81d0b" toggleGroup="$register" />
+            </children>
+        </AnchorPane>
+    </right>
+</BorderPane>

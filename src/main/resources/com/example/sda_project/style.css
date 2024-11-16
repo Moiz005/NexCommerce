@@ -1,0 +1,119 @@
+.root {
+    -fx-font-family: "Arial";
+}
+
+.heading {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+}
+
+Text {
+    -fx-fill: white;
+}
+
+#welcomeText {
+    -fx-text-fill: white;
+}
+
+.nextPageButton {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-color: #2980b9;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.nextPageButton:hover {
+    -fx-background-color: #2980b9; /* Background color on hover */
+}
+
+.nextPageButton:pressed {
+    -fx-background-color: #1f618d; /* Background color when pressed */
+}
+
+/****************** Navbar styling *************************/
+.navbar {
+    -fx-background-color: #3C3D37;
+    -fx-padding: 10px;
+    -fx-alignment: center;
+    -fx-background-radius: 20px;
+}
+
+.navbar .btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 5px 15px;
+    -fx-cursor: hand;
+}
+
+.navbar .btn:hover {
+    -fx-background-color: #1E201E;
+}
+
+.navbar .btn:pressed {
+    -fx-background-color: #1f2e3d;
+}
+
+
+/***************** Search Bar *****************/
+.searchBar {
+    -fx-padding: 8px;
+    -fx-font-weight: bold;
+}
+
+.searchBtn {
+    -fx-padding: 5px;
+    -fx-background-color: #3C3D37;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.searchBtn:hover {
+    -fx-background-color: #1E201E;
+}
+
+#productList {
+    -fx-background-color: #fff5f3; /* very light tomato shade */
+    -fx-padding: 15;
+    -fx-spacing: 15;
+}
+
+.productBox {
+    -fx-border-color: #ff6347; /* outline in tomato color */
+    -fx-border-width: 1.5;
+    -fx-background-color: #ffe4e1; /* pale pink background */
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+}
+
+.productBox .label {
+    -fx-text-fill: #ff6347; /* tomato color for labels */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.incrementButton, .decrementButton {
+    -fx-background-color: #ff6347; /* tomato color */
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.incrementButton:hover, .decrementButton:hover {
+    -fx-background-color: #e55b3c; /* darker shade on hover */
+}
+
+.btn {
+    -fx-padding: 5px;
+    -fx-background-color: #3C3D37;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
