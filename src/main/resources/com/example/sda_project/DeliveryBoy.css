@@ -1,0 +1,36 @@
+/* Style for the main page */
+.page {
+    -fx-background-color: linear-gradient(to bottom, #ffedcc, #ffa07a); /* Light orange to orange */
+    -fx-padding: 20; /* Add padding to prevent overflow */
+}
+
+/****************** Navbar styling *************************/
+.navbar {
+    -fx-background-color: #3C3D37;
+    -fx-padding: 10px;
+    -fx-alignment: center;
+    -fx-background-radius: 20px;
+}
+
+.navbar .btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 5px 15px;
+    -fx-cursor: hand;
+}
+
+.navbar .btn:hover {
+    -fx-background-color: #1E201E;
+}
+
+.navbar .btn:pressed {
+    -fx-background-color: #1f2e3d;
+}
+
+.btn {
+    -fx-padding: 5px;
+    -fx-background-color: #3C3D37;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}

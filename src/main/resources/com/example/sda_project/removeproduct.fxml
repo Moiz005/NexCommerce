@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sda_project.controller.RemoveProductController">
+    <children>
+
+
+
+        <!-- Header Design -->
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TOMATO" height="218.0" layoutX="-17.0" layoutY="-1.0" stroke="#891a1a" strokeType="INSIDE" width="1543.0" AnchorPane.bottomAnchor="428.33333333333326" AnchorPane.leftAnchor="-17.0" AnchorPane.rightAnchor="11.333333333333258" AnchorPane.topAnchor="-1.0">
+            <effect>
+                <Shadow height="0.0" radius="11.7675" width="49.07">
+                    <color>
+                        <Color red="1.0" green="0.38823530077934265" blue="0.27843138575553894" />
+                    </color>
+                </Shadow>
+            </effect>
+        </Rectangle>
+        <Label layoutX="595.0" layoutY="176.0" prefHeight="27.0" prefWidth="174.0" text="Nex Commerce" textFill="#c43939">
+            <font>
+                <Font name="Candara Bold" size="25.0" />
+            </font>
+        </Label>
+        <Line endX="115.3333740234375" layoutX="683.0" layoutY="206.0" startX="-122.66668701171875" stroke="#c43939" />
+
+        <!-- Product Table -->
+        <TableView fx:id="productTable" layoutX="312.0" layoutY="253.0" prefHeight="339.0" prefWidth="769.0">
+            <columns>
+                <TableColumn fx:id="nameColumn" prefWidth="150.0" text="Name" />
+                <TableColumn fx:id="priceColumn" prefWidth="100.0" text="Price" />
+                <TableColumn fx:id="descriptionColumn" prefWidth="250.0" text="Description" />
+                <TableColumn fx:id="imageUrlColumn" prefWidth="268.0000203450521" text="Image URL" />
+            </columns>
+        </TableView>
+
+        <!-- Remove Product Button -->
+        <Button layoutX="472.0" layoutY="623.0" onAction="#removeSelectedProduct" prefWidth="200.0" text="Remove Selected Product" />
+
+        <!-- Back Button -->
+        <Button layoutX="755.0" layoutY="623.0" onAction="#goBack" prefWidth="100.0" text="Back" />
+
+        <!-- Label for messages -->
+        <Label fx:id="messageLabel" layoutX="50.0" layoutY="750.0" prefHeight="30.0" prefWidth="600.0" style="-fx-text-fill: red;" text="" />
+    </children>
+</AnchorPane>

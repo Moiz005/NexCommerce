@@ -1,12 +1,15 @@
-package com.example.sda_project;
+package com.example.sda_project.controller;
 
+import com.example.sda_project.HelloApplication;
+import com.example.sda_project.model.Product;
+import com.example.sda_project.model.WishList;
 import com.example.sda_project.util.DBUtil;
-import com.example.sda_project.Product;
-import com.example.sda_project.Cart;
+import com.example.sda_project.model.Cart;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.Node;
@@ -14,9 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import javafx.stage.Screen;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import java.sql.*;
 import java.util.ArrayList;
@@ -25,24 +26,19 @@ import javafx.geometry.Insets;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import java.net.HttpURLConnection;
-import java.net.URL;
+
 import javafx.scene.layout.GridPane;
-import javafx.geometry.Pos;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class HomeController {
     @FXML
-    private TextField searchField;
-    @FXML
-    private Button searchBtn;
-    @FXML
-    private Label searchResultsLabel;
-    @FXML
     private VBox productList;
 
-    private static Cart cart = new Cart();
+    private static final Cart cart = new Cart();
+
+    private static final WishList wishList = new WishList();
 
     @FXML
     protected void goToAbout(ActionEvent e){
@@ -51,7 +47,6 @@ public class HomeController {
             Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
             Scene scene = new Scene(fxmlLoader.load(), screenBounds.getWidth(), screenBounds.getHeight());
 
-            // Load the CSS file
             URL cssFile = HelloApplication.class.getResource("style.css");
             if (cssFile != null) {
                 scene.getStylesheets().add(cssFile.toExternalForm());
@@ -66,8 +61,7 @@ public class HomeController {
             stage.show();
         }
         catch (IOException ex){
-            ex.printStackTrace();
-            System.out.println("Error loading the About page: " + ex.getMessage());
+            showError(ex.getMessage());
         }
     }
 
@@ -78,7 +72,6 @@ public class HomeController {
             Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
             Scene scene = new Scene(fxmlLoader.load(), screenBounds.getWidth(), screenBounds.getHeight());
 
-            // Load the CSS file
             URL cssFile = HelloApplication.class.getResource("style.css");
             if (cssFile != null) {
                 scene.getStylesheets().add(cssFile.toExternalForm());
@@ -93,71 +86,110 @@ public class HomeController {
             stage.show();
         }
         catch (IOException ex){
-            ex.printStackTrace();
-            System.out.println("Error loading the Cart page: " + ex.getMessage());
+            showError(ex.getMessage());
         }
     }
 
     @FXML
-    private void handleSearchButton(){
-        String searchText = searchField.getText().trim();
-        if(searchText.isEmpty()){
-            searchResultsLabel.setText("Please enter a product name to search!!!");
-            return;
-        }
-        searchProduct(searchText);
-    }
+    private void goToWishList(ActionEvent e){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("WishList.fxml"));
+            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+            Scene scene = new Scene(fxmlLoader.load(), screenBounds.getWidth(), screenBounds.getHeight());
 
-    private void searchProduct(String productName){
-        String query = "SELECT product_name, discounted_price, description FROM Products WHERE product_name LIKE ?";
-        try (Connection conn = DBUtil.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            stmt.setString(1, "%" + productName + "%");
-
-            ResultSet resultSet = stmt.executeQuery();
-
-            // Check if any result exists
-            if (resultSet.next()) {
-                // Fetch the product details from the result set
-                String productDetails = "Product: " + resultSet.getString("product_name") + "\n"
-                        + "Discounted Price: " + resultSet.getDouble("discounted_price") + "\n"
-                        + "Description: " + resultSet.getString("description");
-
-                searchResultsLabel.setText(productDetails); // Display product details
+            URL cssFile = HelloApplication.class.getResource("style.css");
+            if (cssFile != null) {
+                scene.getStylesheets().add(cssFile.toExternalForm());
             } else {
-                searchResultsLabel.setText("No products found matching: " + productName);
+                System.out.println("Warning: 'style.css' not found.");
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-            searchResultsLabel.setText("Error occurred while searching for the product.");
+            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            stage.setTitle("Wish List");
+            stage.setScene(scene);
+            stage.setMaximized(true);
+            stage.show();
+        }
+        catch (IOException ex){
+            showError(ex.getMessage());
         }
     }
+
+    @FXML
+    private void goToOrderReviews(ActionEvent e){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrderReviews.fxml"));
+            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+            Scene scene = new Scene(fxmlLoader.load(), screenBounds.getWidth(), screenBounds.getHeight());
+
+            URL cssFile = HelloApplication.class.getResource("style.css");
+            if (cssFile != null) {
+                scene.getStylesheets().add(cssFile.toExternalForm());
+            } else {
+                System.out.println("Warning: 'style.css' not found.");
+            }
+
+            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            stage.setTitle("Order Reviews");
+            stage.setScene(scene);
+            stage.setMaximized(true);
+            stage.show();
+        }
+        catch (IOException ex){
+            showError(ex.getMessage());
+        }
+    }
+
+    @FXML
+    protected void goToBrowse(ActionEvent e){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Browse.fxml"));
+            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+            Scene scene = new Scene(fxmlLoader.load(), screenBounds.getWidth(), screenBounds.getHeight());
+
+            URL cssFile = HelloApplication.class.getResource("style.css");
+            if (cssFile != null) {
+                scene.getStylesheets().add(cssFile.toExternalForm());
+            } else {
+                System.out.println("Warning: 'style.css' not found.");
+            }
+
+            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            stage.setTitle("Browse");
+            stage.setScene(scene);
+            stage.setMaximized(true);
+            stage.show();
+        }
+        catch (IOException ex){
+            showError(ex.getMessage());
+        }
+    }
+
 
     private List<Product> loadProducts() {
         List<Product> products = new ArrayList<>();
-        String query = "SELECT Top 10 product_name, discounted_price, description, image FROM Products";
+        String query = "SELECT Top 10 * FROM Products";
 
         try (Connection conn = DBUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query);
              ResultSet resultSet = stmt.executeQuery()) {
 
             while (resultSet.next()) {
+                int product_id = resultSet.getInt("product_id");
                 String name = resultSet.getString("product_name");
                 double price = resultSet.getDouble("discounted_price");
                 String description = resultSet.getString("description");
                 String imageArrayString = resultSet.getString("image");
+                int capacity = resultSet.getInt("quantity");
 
                 String imageUrl = imageArrayString.replaceAll("\\[|\\]|\"", "").split(",\\s*")[0];
-//                if (isImageUrlValid(imageUrl)) {
-                    products.add(new Product(name, price, description, imageUrl));
-//                }
+                if (isImageUrlValid(imageUrl)) {
+                    products.add(new Product(product_id, name, price, description, imageUrl, capacity));
+                }
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
-            searchResultsLabel.setText("Error occurred while loading products.");
+            showError(e.getMessage());
         }
 
         return products;
@@ -224,7 +256,13 @@ public class HomeController {
             GridPane.setConstraints(addToCartButton, 1, 3);
             GridPane.setMargin(addToCartButton, new Insets(10, 0, 0, 0)); // Adds margin above button
 
-            productGrid.getChildren().addAll(imageView, nameLabel, priceLabel, descriptionLabel, addToCartButton);
+            Button addToWishListButton = new Button("Add to Wish List");
+            addToWishListButton.setStyle("-fx-background-color: #ff6347; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5; -fx-background-radius: 5;");
+            addToWishListButton.setOnAction(e -> addToWishList(product)); // Method to handle adding to cart
+            GridPane.setConstraints(addToWishListButton, 1, 4);
+            GridPane.setMargin(addToWishListButton, new Insets(10, 0, 0, 0));
+
+            productGrid.getChildren().addAll(imageView, nameLabel, priceLabel, descriptionLabel, addToCartButton, addToWishListButton);
 
             productList.getChildren().add(productGrid);
         }
@@ -234,8 +272,45 @@ public class HomeController {
         return cart;
     }
 
+    public static WishList getGlobalWishList() {
+        return wishList;
+    }
+
     private void addToCart(Product product) {
         cart.addProducts(product);
-        System.out.println(product.getName());
+    }
+
+    private void addToWishList(Product product) {
+        wishList.addProducts(product);
+    }
+
+    @FXML
+    private void handleLogOut(ActionEvent e){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 500);
+
+            URL cssFile = HelloApplication.class.getResource("style.css");
+            if (cssFile != null) {
+                scene.getStylesheets().add(cssFile.toExternalForm());
+            } else {
+                System.out.println("Warning: 'style.css' not found.");
+            }
+
+            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            stage.setTitle("Login");
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (IOException ex){
+            showError(ex.getMessage());
+        }
+    }
+    private void showError(String errorMessage) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("An Error Occurred");
+        alert.setContentText(errorMessage);
+        alert.showAndWait();
     }
 }

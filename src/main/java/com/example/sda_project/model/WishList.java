@@ -1,10 +1,9 @@
-package com.example.sda_project;
+package com.example.sda_project.model;
 
-import com.example.sda_project.Product;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cart {
+public class WishList {
     private List<Product> products = new ArrayList<Product>();
 
     public void addProducts(Product product){

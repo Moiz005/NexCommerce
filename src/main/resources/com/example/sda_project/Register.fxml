@@ -9,7 +9,7 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.control.RadioButton?>
 
-<AnchorPane prefHeight="432.0" prefWidth="599.0" style="-fx-background-color: #f8a68d;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sda_project.RegisterController">
+<AnchorPane prefHeight="432.0" prefWidth="599.0" style="-fx-background-color: #f8a68d;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sda_project.controller.RegisterController">
     <children>
         <Label alignment="CENTER" layoutX="165.0" layoutY="37.0" prefHeight="47.0" prefWidth="249.0" text="REGISTRATION" textFill="#eb0e56">
             <font>
@@ -26,19 +26,25 @@
                 <Font name="Candara" size="18.0" />
             </font>
         </Label>
+        <Label alignment="CENTER" layoutX="47.0" layoutY="244.0" prefHeight="34.0" prefWidth="184.0" text="Address" textFill="#eb0e56">
+            <font>
+                <Font name="Candara" size="18.0" />
+            </font>
+        </Label>
 
         <TextField fx:id="username" layoutX="201.0" layoutY="154.0" promptText="Enter UserName" style="-fx-background-color: white;" />
         <PasswordField fx:id="password" layoutX="201.0" layoutY="199.0" promptText="Enter Password" style="-fx-background-color: white;" />
+        <TextField fx:id="address" layoutX="201.0" layoutY="244.0" promptText="Enter Address" style="-fx-background-color: white;" />
 
-        <RadioButton fx:id="AdminRadioButton" layoutX="150.0" layoutY="240.0" mnemonicParsing="false" text="Admin" textFill="#e81d0b">
+        <RadioButton fx:id="AdminRadioButton" layoutX="150.0" layoutY="280.0" mnemonicParsing="false" text="Admin" textFill="#e81d0b">
             <toggleGroup>
                 <ToggleGroup fx:id="register" />
             </toggleGroup>
         </RadioButton>
-        <RadioButton fx:id="StaffRadioButton" layoutX="260.0" layoutY="240.0" mnemonicParsing="false" text="Staff" textFill="#e81d0b" toggleGroup="$register" />
-        <RadioButton fx:id="CustomerRadioButton" layoutX="370.0" layoutY="240.0" mnemonicParsing="false" text="Customer" textFill="#e81d0b" toggleGroup="$register" />
+        <RadioButton fx:id="CustomerRadioButton" layoutX="370.0" layoutY="280.0" mnemonicParsing="false" text="Customer" textFill="#e81d0b" toggleGroup="$register" />
+        <RadioButton fx:id="DeliveryBoyRadioButton" layoutX="260.0" layoutY="280.0" mnemonicParsing="false" text="Delivery Boy" textFill="#e81d0b" toggleGroup="$register" />
 
-        <Button fx:id="registerButton" layoutX="204.0" layoutY="278.0" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="35.0" prefWidth="192.0" style="-fx-background-color: white;" text="REGISTER" textFill="#a11910" />
-        <Label fx:id="registerError" alignment="CENTER" layoutX="47.0" layoutY="330.0" prefHeight="34.0" prefWidth="500.0" textFill="red" style="-fx-font-weight: bold;" />
+        <Button fx:id="registerButton" layoutX="204.0" layoutY="320.0" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="35.0" prefWidth="192.0" style="-fx-background-color: white;" text="REGISTER" textFill="#a11910" />
+        <Label fx:id="registerError" alignment="CENTER" layoutX="47.0" layoutY="360.0" prefHeight="34.0" prefWidth="500.0" textFill="red" style="-fx-font-weight: bold;" />
     </children>
 </AnchorPane>

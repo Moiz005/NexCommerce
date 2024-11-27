@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sda_project.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sda_project.controller.LoginController">
     <left>
         <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #ff6347;" BorderPane.alignment="CENTER">
             <children>
@@ -118,7 +118,7 @@
                </toggleGroup>
                  </RadioButton>
                  <RadioButton fx:id="CustomerRadioButton" layoutX="117.0" layoutY="247.0" mnemonicParsing="false" text="Customer" textFill="#e81d0b" toggleGroup="$register" />
-                 <RadioButton fx:id="StaffRadioButton" layoutX="222.0" layoutY="248.0" mnemonicParsing="false" text="Staff" textFill="#e81d0b" toggleGroup="$register" />
+                 <RadioButton fx:id="DBoyRadioButton" layoutX="222.0" layoutY="248.0" mnemonicParsing="false" text="Delivery Boy" textFill="#e81d0b" toggleGroup="$register" />
             </children>
         </AnchorPane>
     </right>

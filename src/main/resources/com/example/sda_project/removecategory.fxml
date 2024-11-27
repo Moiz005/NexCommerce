@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sda_project.controller.RemoveCategoryController">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TOMATO" height="218.0" layoutX="-17.0" layoutY="-1.0" stroke="#891a1a" strokeType="INSIDE" width="1543.0" AnchorPane.bottomAnchor="428.33333333333326" AnchorPane.leftAnchor="-17.0" AnchorPane.rightAnchor="11.333333333333258" AnchorPane.topAnchor="-1.0">
+            <effect>
+                <Shadow height="0.0" radius="11.7675" width="49.07">
+                    <color>
+                        <Color red="1.0" green="0.38823530077934265" blue="0.27843138575553894" />
+                    </color>
+                </Shadow>
+            </effect>
+        </Rectangle>
+        <Label layoutX="595.0" layoutY="176.0" prefHeight="27.0" prefWidth="174.0" text="Nex Commerce" textFill="#c43939">
+            <font>
+                <Font name="Candara Bold" size="25.0" />
+            </font>
+        </Label>
+        <Line endX="115.3333740234375" layoutX="683.0" layoutY="206.0" startX="-122.66668701171875" stroke="#c43939" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="113.0" layoutX="583.0" layoutY="20.0" stroke="#eb4747" strokeType="INSIDE" width="121.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="113.0" layoutX="639.0" layoutY="51.0" stroke="#eb4747" strokeType="INSIDE" width="121.0" />
+        <Line endX="36.0" endY="34.0" layoutX="724.0" layoutY="17.0" startX="-19.199996948242188" startY="2.599994659423828" stroke="#eb4747" />
+        <Line endX="40.80000305175781" endY="34.0" layoutX="598.0" layoutY="20.0" startX="-14.999988555908203" startY="1.0000038146972656" stroke="#eb4747" />
+        <Line endX="44.00001525878906" endY="34.99998474121094" layoutX="595.0" layoutY="130.0" startX="-10.800006866455078" startY="3.9999847412109375" stroke="#eb4747" />
+        <Line endX="86.445556640625" endY="109.0" layoutX="127.0" layoutY="102.0" startX="-124.95149993896484" startY="-98.36119079589844" stroke="#ffb0b0" />
+        <Line endX="140.0" endY="-107.36492156982422" layoutX="1245.0" layoutY="109.0" startX="-77.1290283203125" startY="104.0" stroke="#ffb0b0" />
+
+        <!-- TableView for displaying categories -->
+        <TableView fx:id="categoryTable" layoutX="437.0" layoutY="251.0" prefHeight="200.0" prefWidth="442.0">
+            <columns>
+                <TableColumn fx:id="categoryNameColumn" prefWidth="380.0" text="Category Name" />
+            </columns>
+        </TableView>
+
+        <!-- Button to remove selected category -->
+        <Button layoutX="608.0" layoutY="475.0" mnemonicParsing="false" onAction="#removeCategory" style="-fx-background-color: ff6347;" text="Remove Category" />
+
+        <!-- Label for messages -->
+        <Label fx:id="messageLabel" layoutX="700.0" layoutY="510.0" prefHeight="30.0" prefWidth="200.0" style="-fx-text-fill: red;" text="" />
+
+        <Button layoutX="643.0" layoutY="527.0" mnemonicParsing="false" onAction="#goBack" style="-fx-background-color: ff6347;" text="Back" />
+    </children>
+</AnchorPane>
